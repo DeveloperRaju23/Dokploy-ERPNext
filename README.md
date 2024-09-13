@@ -1,10 +1,10 @@
-Core Apps:
+#Core Apps:
 	frappe
 	erpnext
 	payments
 	webshop (eCommerce)
 -----------------------------------------
-Add-ons: 
+#Add-ons: 
 	hrms
 	insights
 	lms
@@ -34,7 +34,7 @@ Add-ons:
 	bench_manager
 	nextcloud-integration
 -----------------------------------------
-Standalone Application: books
+#Standalone Application: books
 -----------------------------------------
 docker compose -p pwd -f pwd.yml up -d
 docker logs  pwd-create-site-1 -f
@@ -67,7 +67,7 @@ docker logs  pwd-create-site-1 -f
 [backend Container] bench --site frontend list-apps
 [backend Container] bench migrate --skip-failing
 
-Stop all Container and run again
+#Stop all Container and run again
 ----------------------------------------------
 [frontend Container for CSS broken] bench build --app frappe --hard-link
 [frontend Container for CSS broken] bench build --app erpnext --hard-link
