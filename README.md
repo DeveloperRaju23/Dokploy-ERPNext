@@ -18,4 +18,4 @@ You can follow the docker-compose.yml file for installation.
 2. run bench --site frontend install-app erpnext
 3. Open the url in incognito mode and continue with setup.
 
-For more commands follow commands.txt
+For more frappe apps follow commands.txt commands
