@@ -3,7 +3,7 @@ You can follow the docker-compose.yml file for installation.
 
 #Steps
 1. Create a project in Dokploy
-2. Create a compose service in the project
+2. Create a compose service inside the project
 3. Inside compose select the provider as Raw
 4. Paste the docker-compose.yml code to Raw and save
 5. Go to the Domains tab and click on Add domain
