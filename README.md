@@ -5,8 +5,8 @@
 	webshop (eCommerce)
 -----------------------------------------
 #Add-ons: 
-	hrms
-	insights
+	1. hrms
+	2. insights
 	lms
 	lending
 	builder
