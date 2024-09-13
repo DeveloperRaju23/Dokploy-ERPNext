@@ -1,79 +1,21 @@
-#Core Apps:
-	frappe
-	erpnext
-	payments
-	webshop (eCommerce)
------------------------------------------
-#Add-ons: 
-	1. hrms
-	2. insights
-	lms
-	lending
-	builder
-	helpdesk
-	healthcare	
-	crm
-	print_designer
-	wiki
-	gameplan
-	ury https://github.com/ury-erp/ury.git (Open Source Kitchen Display System for more https://github.com/orgs/ury-erp/repositories)
-	drive
-	Front Desk https://github.com/core-initiative/front-desk (Hotel Front Office)
-	ecommerce_integrations
-	erpnext-shipping
-	erpnext_price_estimation
-	non_profit
-	education
-	changemakers
-	restaurant_management (https://github.com/quantumbitcore/erpnext-restaurant.git)
-	agriculture
-	biometric-attendance-sync-tool
-	waba_integration (WhatsApp Business)
-	chat
-	hospitality ( manage hotels & restaurants)
-	bench_manager
-	nextcloud-integration
------------------------------------------
-#Standalone Application: books
------------------------------------------
-docker compose -p pwd -f pwd.yml up -d
-docker logs  pwd-create-site-1 -f
+#This is a guide for running ERPNext to Dokploy
+You can follow the docker-compose.yml file for installation.
 
-[frontend Container] bench get-app erpnext			
-[frontend Container] bench get-app payments
-[frontend Container] bench get-app webshop
-[frontend Container] bench get-app education
-[frontend Container] bench get-app lms
-[frontend Container] bench get-app hospitality
-[frontend Container] bench --site frontend install-app erpnext
-[frontend Container] bench --site frontend install-app payments
-[frontend Container] bench --site frontend install-app webshop
-[frontend Container] bench --site frontend install-app education
-[frontend Container] bench --site frontend install-app hospitality
-[frontend Container] bench --site frontend list-apps
-[frontend Container] bench migrate --skip-failing
+#Steps
+1. Create a project in Dokploy
+2. Create a compose service in the project
+3. Inside compose select the provider as Raw
+4. Paste the docker-compose.yml code to Raw and save
+5. Go to the Domains tab and click on Add domain
+6. Select the service as frontend Host as your domain
+7. Use port 8080
+8. Active SSL with Letsencript
+9. Deploy the code from the general tab and wait for 5-10 min after deployment is completed
+10. Open your given domain it should run perfectly.
 
-[backend Container] bench get-app erpnext
-[backend Container] bench get-app payments
-[backend Container] bench get-app webshop
-[backend Container] bench get-app education
-[backend Container] bench get-app lms
-[backend Container] bench get-app hospitality
-[backend Container] bench --site frontend install-app erpnext
-[backend Container] bench --site frontend install-app payments
-[backend Container] bench --site frontend install-app webshop
-[backend Container] bench --site frontend install-app education
-[backend Container] bench --site frontend install-app hospitality
-[backend Container] bench --site frontend list-apps
-[backend Container] bench migrate --skip-failing
+#If you are stuck on the setup page follow the steps below
+1. Open the terminal and select frontend container
+2. run bench --site frontend install-app erpnext
+3. Open the url in incognito mode and continue with setup.
 
-#Stop all Container and run again
-----------------------------------------------
-[frontend Container for CSS broken] bench build --app frappe --hard-link
-[frontend Container for CSS broken] bench build --app erpnext --hard-link
-[frontend Container for CSS broken] bench build --app payments --hard-link
-[frontend Container for CSS broken] bench build --app webshop --hard-link
-[frontend Container for CSS broken] bench build --app education --hard-link
-[frontend Container for CSS broken] bench build --app hospitality --hard-link
-
-bench --site frontend clear-cache
+# For more commands follow commands.txt
