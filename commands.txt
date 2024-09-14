@@ -77,3 +77,7 @@ Stop all Container and run again
 [frontend Container for CSS broken] bench build --app hospitality --hard-link
 
 bench --site frontend clear-cache
+
+bench set-nginx-port {{2nd site-name}} 8081
+bench setup nginx
+sudo service nginx reload
