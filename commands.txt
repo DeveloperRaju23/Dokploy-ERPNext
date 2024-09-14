@@ -38,7 +38,7 @@ Standalone Application: books
 -----------------------------------------
 docker compose -p pwd -f pwd.yml up -d
 docker logs  pwd-create-site-1 -f
-
+-----------------------------------------
 [frontend Container] bench get-app erpnext			
 [frontend Container] bench get-app payments
 [frontend Container] bench get-app webshop
@@ -52,7 +52,7 @@ docker logs  pwd-create-site-1 -f
 [frontend Container] bench --site frontend install-app hospitality
 [frontend Container] bench --site frontend list-apps
 [frontend Container] bench migrate --skip-failing
-
+-----------------------------------------
 [backend Container] bench get-app erpnext
 [backend Container] bench get-app payments
 [backend Container] bench get-app webshop
@@ -75,38 +75,38 @@ Stop all Container and run again
 [frontend Container for CSS broken] bench build --app webshop --hard-link
 [frontend Container for CSS broken] bench build --app education --hard-link
 [frontend Container for CSS broken] bench build --app hospitality --hard-link
-
+-----------------------------------------
 bench --site frontend clear-cache
-
+-----------------------------------------
 #Multitenant Setup
-Assuming that you've already got your first site running and you've performed the production deployment steps, this section explains how to host your second site (and more). Your first site is automatically set as default site. You can change it with the command,
+Assuming that you've already got your first site running and performed the production deployment steps, this section explains how to host your second site (and more). Your first site is automatically set as the default site. You can change it with the command,
 bench use sitename
-
-#Port based multitenancy
+-----------------------------------------
+# Port-based multitenancy
 Create a new site
 	bench new-site site2namebench setup nginx
 Set port
 	bench set-nginx-port site2name 8082
-Re generate nginx config
+Re-generate nginx config
 	bench setup nginx
 Reload nginx
 	sudo service nginx reload
+-----------------------------------------
+# DNS-based multitenancy
+You can name your sites as the hostnames that would resolve it. Thus, all the sites you add to the bench will run on the same port and will be automatically selected based on the hostname.
 
-#DNS based multitenancy
-You can name your sites as the hostnames that would resolve to it. Thus, all the sites you add to the bench would run on the same port and will be automatically selected based on the hostname.
-
-DNS based multitenancy mode is disabled by default, you can switch it on / off using the command,
+DNS-based multitenancy mode is disabled by default, you can switch it on / off using the command,
 	bench config dns_multitenant on
 
-To make a new site under DNS based multitenancy, perform the following steps.
+To make a new site under DNS-based multitenancy, perform the following steps.
 
 Create a new site
-	bench new-site site2name
+	bench new-site site2name.com
 
-Re generate nginx config
+Re-generate nginx config
 	bench setup nginx
 
 Reload nginx
 	sudo service nginx reload
 
-Note : For "DNS based multitenancy", currentsite.txt in frappe-bench/sites/ should be empty.
+Note: For "DNS-based multitenancy", currentsite.txt in frappe-bench/sites/ should be empty.
