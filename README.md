@@ -13,7 +13,7 @@ You can follow the docker-compose.yml file for installation.
 9. Deploy the code from the general tab and wait for 5-10 min after deployment is completed
 10. Open your given domain it should run perfectly.
 
-#If you are stuck on the setup page follow the steps below
+#If you are stuck on the setup page follow the steps below (Resolved in ERPNext:v15.38.0)
 1. Open the terminal and select frontend container
 2. run bench --site frontend install-app erpnext
 3. Open the url in incognito mode and continue with setup.
